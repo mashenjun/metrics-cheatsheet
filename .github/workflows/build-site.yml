@@ -9,8 +9,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Build Site
+      - name: Perpare Dependencies
         uses: iCrawl/action-tsc@v1
+      - name: Build Site
         run: make build-linux
       - name: Deploy to GHPages
         uses: JamesIves/github-pages-deploy-action@3.7.1
