@@ -1,4 +1,4 @@
-# Tipedia
+# Metrics Cheat Sheet
 
 ## what is this
 
