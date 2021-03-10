@@ -12,9 +12,7 @@ jobs:
       - name: Perpare npm
         uses: bahmutov/npm-install@v1
       - name: Build Site
-        run: |
-          npm install -g typescript
-          make build-linux
+        run: make build-linux
       - name: Deploy to GHPages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
