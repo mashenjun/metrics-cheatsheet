@@ -328,6 +328,7 @@ const fuse = new Fuse(site_index, searchOptions);
 
 window.addEventListener("load", () => {
     const language = navigator.language.split("-")[0];
+    const repo_name = location.pathname.split("/")[1];
     $(".search-input").onkeyup = () => {
         const to_search = $(".search-input").value;
         $("#search-result").innerHTML = "";
@@ -342,7 +343,7 @@ window.addEventListener("load", () => {
                 for (const item of result) {
                     html_str += `
                 <a class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                    tabindex="0" role="button" aria-disabled="false" href="/${language}/${item.item.section}/${item.item.filename}.html">
+                    tabindex="0" role="button" aria-disabled="false" href="/${repo_name}/${language}/${item.item.section}/${item.item.filename}.html">
                     <div class="MuiListItemText-root">
                         <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">
                             ${item.item.name}
