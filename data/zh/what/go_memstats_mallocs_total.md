@@ -12,7 +12,7 @@ Total object number of mallocs.
 
 `runtime.MemStats.Mallocs`
 
-> // Mallocs is the cumulative count of heap objects allocated.
+> // Mallocs is the cumulative count of heap objects allocated.  
 > // The number of live objects is Mallocs - Frees.
 
 ## Links

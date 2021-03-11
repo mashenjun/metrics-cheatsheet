@@ -13,10 +13,10 @@ Total number of pointer lookups.
 
 `runtime.MemStats.Lookups`
 
-> // Lookups is the number of pointer lookups performed by the
-> // runtime.
-> //
-> // This is primarily useful for debugging runtime internals.
+> // Lookups is the number of pointer lookups performed by the  
+> // runtime.  
+> //  
+> // This is primarily useful for debugging runtime internals.  
 
 ## Links
 
