@@ -1,11 +1,20 @@
 ---
-category: concept
-tags: [TiDB]
+category: scheduler
+tags: [client_golang, go runtime]
 ---
-# CIStr
+# go_threads
 
-大小写无关字符串。
+Number of OS threads created.
+PS: 也就是全局M的数量。
+
+> calls out to runtime.CreateThreadProfile(), which reads off global `allm`（全局m链表） variable.
+
+## Collect from
+
+`runtime.ThreadCreateProfile(nil)`
 
 ## Links
 
-- [代码](https://github.com/pingcap/parser/blob/44f6be1df1c40f366a708a5c3bb88e9a64482e44/model/model.go#L1016)
+- [代码](https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L318)
+- [资料](https://povilasv.me/prometheus-go-metrics/#)
+

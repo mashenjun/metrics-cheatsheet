@@ -9,6 +9,10 @@ Virtual memory size in bytes.
 
 > uses `vsize` – virtual memory size is the amount of address space that a process is managing. This includes all types of memory, both in RAM and swapped out.
 
+## Collect from
+
+`/proc/PID/stat` on Linux
+
 ## Links
 
 - [代码](https://github.com/prometheus/client_golang/blob/master/prometheus/process_collector.go#L31)

@@ -10,7 +10,9 @@ A summary of the pause duration of garbage collection cycles.
 
 ## Collect from
 
-`debug.GCStats.NumGC` `debug.GCStats.PauseTotal.Seconds()` `debug.GCStats.PauseQuantiles`
+```
+debug.GCStats.NumGC, debug.GCStats.PauseTotal.Seconds(), debug.GCStats.PauseQuantiles
+```
 
 ## Links
 

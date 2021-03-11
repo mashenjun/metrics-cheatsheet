@@ -1,11 +1,19 @@
 ---
-category: concept
-tags: [TiDB]
+category: memory
+tags: [client_golang, go runtime]
 ---
-# CIStr
+# go_memstats_alloc_bytes_total
 
-大小写无关字符串。
+Total number of bytes allocated, even if freed.
+
+> this metric increases as objects are allocated in the Heap, but doesn’t decrease when they are freed.
+
+## Collect from
+
+`runtime.MemStats`
 
 ## Links
 
-- [代码](https://github.com/pingcap/parser/blob/44f6be1df1c40f366a708a5c3bb88e9a64482e44/model/model.go#L1016)
+- [代码](https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L102)
+- [资料](https://povilasv.me/prometheus-go-metrics/#)
+
