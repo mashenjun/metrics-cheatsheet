@@ -7,7 +7,7 @@ tags: [client_golang, process]
 
 Resident memory size in bytes.
 
-> multiplies rss – resident set memory size is number of memory pages the process has in real memory, with pagesize 4. This results in the amount of memory that belongs specifically to that process in bytes. This excludes swapped out memory pages.
+> multiplies `rss` – resident set memory size is number of memory pages the process has in real memory, with pagesize 4. This results in the amount of memory that belongs specifically to that process in bytes. This excludes swapped out memory pages.
 
 ## Links
 

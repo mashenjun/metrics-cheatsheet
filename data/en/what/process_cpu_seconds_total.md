@@ -6,6 +6,7 @@ tags: [client_golang]
 # process_cpu_seconds_total
 
 Total user and system CPU time spent in seconds.
+
 > it uses utime – number of ticks executing code in user mode, measured in jiffies, with stime – jiffies spent in the system mode, executing code on behalf of the process (like doing system calls). A jiffy is the time between two ticks of the system timer interrupt. 
 
 ## Links
