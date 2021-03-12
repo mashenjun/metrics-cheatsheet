@@ -1,6 +1,6 @@
 ---
 category: memory
-aliases: [physical memory, 进程物理内存]
+aliases: [physical memory, OS视角下的进程物理内存]
 tags: [client_golang, process]
 ---
 # process_resident_memory_bytes

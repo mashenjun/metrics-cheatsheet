@@ -1,6 +1,6 @@
 ---
 category: memory
-aliases: [virtual memory, 进程虚拟内存]
+aliases: [virtual memory, OS视角下的进程虚拟内存]
 tags: [client_golang, process]
 ---
 # process_virtual_memory_bytes

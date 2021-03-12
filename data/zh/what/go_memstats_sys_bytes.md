@@ -6,7 +6,7 @@ tags: [client_golang, go runtime]
 # go_memstats_sys_bytes
 
 Number of bytes obtained from system.  
-PS: 统计的也是虚拟内存
+PS: 在虚拟内存空间进行统计
 
 > it’s a metric, which measures how many bytes of memory in total is taken from system by Go. It sums all the sys metrics including `go_memstats_heap_sys_bytes`, `go_memstats_stack_sys_bytes`, `go_memstats_mspan_sys_bytes`, `go_memstats_mcache_sys_bytes`, `go_memstats_buck_hash_sys_bytes`, `go_memstats_gc_sys_bytes`, `go_memstats_other_sys_bytes`.
 

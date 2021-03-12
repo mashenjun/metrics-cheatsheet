@@ -14,8 +14,11 @@ A summary of the pause duration of garbage collection cycles.
 debug.GCStats.NumGC, debug.GCStats.PauseTotal.Seconds(), debug.GCStats.PauseQuantiles
 ```
 
+PS: debug.GCStats.PauseTotal.Seconds() 就是对gc中stw的时间统计。
+
 ## Links
 
 - [代码](https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L329)
+- [代码](https://golang.org/src/runtime/mstats.go#L555)
 - [资料](https://povilasv.me/prometheus-go-metrics/#)
 

@@ -11,7 +11,7 @@ PS: mheap和mcache allocate出去的bytes减去free回来的bytes。
 
 > same as `go_memstats_alloc_bytes`.
 
-PS: `go_memstats_alloc_bytes`不包含off-heap memnory。
+PS: `go_memstats_alloc_bytes`不包含off-heap memory。
 
 ## Collect from
 
