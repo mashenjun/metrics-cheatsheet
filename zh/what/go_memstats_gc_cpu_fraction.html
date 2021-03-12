@@ -174,24 +174,29 @@
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
 <div class="page">
-<h1>go_memstats_stack_sys_bytes</h1>
-<p>Number of bytes obtained from system for stack allocator.</p>
+<h1>go_memstats_gc_cpu_fraction</h1>
+<p>The fraction of this program's available CPU time used by the GC since the program started.</p>
 <blockquote>
-<p>shows how many bytes of stack memory is obtained from OS. It’s <code>go_memstats_stack_inuse_bytes</code> plus any memory obtained for OS thread stack.</p>
+<p>shows the fraction of this program’s available CPU time used by GC since the program started.</p>
 </blockquote>
-<p>PS: <code>go_memstats_stack_sys_bytes</code> - <code>go_memstats_stack_inuse_bytes</code> 可以得到OS Thread的栈的大小。</p>
 <h2>Collect from</h2>
-<p><code>runtime.MemStats.StackSys</code></p>
+<p><code>runtime.MemStats.GCCPUFraction</code></p>
 <blockquote>
-<p>// StackSys is bytes of stack memory obtained from the OS.
-//
-// StackSys is StackInuse, plus any memory obtained directly
-// from the OS for OS thread stacks (which should be minimal).</p>
+<p>// GCCPUFraction is the fraction of this program's available<br />
+// CPU time used by the GC since the program started.<br />
+//<br />
+// GCCPUFraction is expressed as a number between 0 and 1,<br />
+// where 0 means GC has consumed none of this program's CPU. A<br />
+// program's available CPU time is defined as the integral of<br />
+// GOMAXPROCS since the program started. That is, if<br />
+// GOMAXPROCS is 2 and a program has been running for 10<br />
+// seconds, its &quot;available CPU&quot; is 20 seconds. GCCPUFraction<br />
+// does not include CPU time used for write barrier activity.</p>
 </blockquote>
 <h2>Links</h2>
 <ul>
-<li><a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L190">代码</a></li>
-<li><a href="https://golang.org/src/runtime/mstats.go">文档</a></li>
+<li><a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L278">代码</a></li>
+<li><a href="https://golang.org/src/runtime/mstats.go#L413">代码</a></li>
 <li><a href="https://povilasv.me/prometheus-go-metrics/#">资料</a></li>
 </ul>
 

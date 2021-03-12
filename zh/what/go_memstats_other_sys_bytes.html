@@ -174,24 +174,19 @@
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
 <div class="page">
-<h1>go_memstats_stack_sys_bytes</h1>
-<p>Number of bytes obtained from system for stack allocator.</p>
+<h1>go_memstats_other_sys_bytes</h1>
+<p>Number of bytes used for other system allocations.</p>
 <blockquote>
-<p>shows how many bytes of stack memory is obtained from OS. It’s <code>go_memstats_stack_inuse_bytes</code> plus any memory obtained for OS thread stack.</p>
+<p>shows how many bytes of memory are used for other runtime allocations.</p>
 </blockquote>
-<p>PS: <code>go_memstats_stack_sys_bytes</code> - <code>go_memstats_stack_inuse_bytes</code> 可以得到OS Thread的栈的大小。</p>
 <h2>Collect from</h2>
-<p><code>runtime.MemStats.StackSys</code></p>
-<blockquote>
-<p>// StackSys is bytes of stack memory obtained from the OS.
-//
-// StackSys is StackInuse, plus any memory obtained directly
-// from the OS for OS thread stacks (which should be minimal).</p>
-</blockquote>
+<p><code>runtime.MemStats.OtherSys</code></p>
+<p>PS：<code>arenaHints</code> + <code>specialfinalizer</code> + <code>specialprofile</code> 的btyes大小。<br />
+PS：不被runtime内存管理器管理，也不被gc管理。</p>
 <h2>Links</h2>
 <ul>
-<li><a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L190">代码</a></li>
-<li><a href="https://golang.org/src/runtime/mstats.go">文档</a></li>
+<li><a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L246">代码</a></li>
+<li><a href="https://golang.org/src/runtime/mheap.go#L707">代码</a></li>
 <li><a href="https://povilasv.me/prometheus-go-metrics/#">资料</a></li>
 </ul>
 
