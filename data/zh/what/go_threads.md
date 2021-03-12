@@ -4,7 +4,7 @@ tags: [client_golang, go runtime]
 ---
 # go_threads
 
-Number of OS threads created.
+Number of OS threads created.  
 PS: 也就是全局M的数量。
 
 > calls out to runtime.CreateThreadProfile(), which reads off global `allm`（全局m链表） variable.
