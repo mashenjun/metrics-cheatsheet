@@ -3,29 +3,25 @@ category: memory
 aliases: [GO堆]
 tags: [client_golang, go runtime]
 ---
-# go_memstats_heap_sys_bytes
+# go_memstats_stack_sys_bytes
 
-Number of heap bytes obtained from system.
+Number of bytes obtained from system for stack allocator.
 
-> bytes of memory obtained for the heap(arena) from OS. This includes virtual address space that has been resevered, but not yet used and virtual address space which was returned to OS after it became unused. This metric estimates the largest size the heap.
+> shows how many bytes of stack memory is obtained from OS. It’s `go_memstats_stack_inuse_bytes` plus any memory obtained for OS thread stack.  
+
+PS: `go_memstats_stack_sys_bytes` - `go_memstats_stack_inuse_bytes` 可以得到OS Thread的栈的大小。
 
 ## Collect from
 
-`runtime.MemStats.HeapSys`
+`runtime.MemStats.StackSys`
 
-> // HeapSys measures the amount of virtual address space  
-> // reserved for the heap. This includes virtual address space  
-> // that has been reserved but not yet used, which consumes no  
-> // physical memory, but tends to be small, as well as virtual  
-> // address space for which the physical memory has been  
-> // returned to the OS after it became unused (see HeapReleased  
-> // for a measure of the latter).  
-
-PS: HeapSys increase when `sysAlloc()` and `sysMap()` is called. HeapSys decrease when `sysFree()` is called.  
-PS: HeapSys 不包含off-heap memory 和 manually managed 的span。  
+> // StackSys is bytes of stack memory obtained from the OS.
+> //
+> // StackSys is StackInuse, plus any memory obtained directly
+> // from the OS for OS thread stacks (which should be minimal).
 
 ## Links
 
-- [代码](https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L150)
+- [代码](https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L190)
 - [文档](https://golang.org/src/runtime/mstats.go)
 - [资料](https://povilasv.me/prometheus-go-metrics/#)

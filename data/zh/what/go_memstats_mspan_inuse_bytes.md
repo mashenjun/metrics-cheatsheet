@@ -7,7 +7,7 @@ tags: [client_golang, go runtime]
 
 Number of bytes in use by mspan structures.
 
-> shows how many bytes are in use by mspan structures.
+> shows how many bytes are in use by `mspan` structures.
 
 ## Collect from
 

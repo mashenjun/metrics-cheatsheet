@@ -341,7 +341,6 @@ window.addEventListener("load", () => {
             } else {
                 let html_str = "";
                 for (const item of result) {
-                    console.log(item);
                     html_str += `
                 <a class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
                     tabindex="0" role="button" aria-disabled="false" href="/${repo_name}/${language}/${item.item.section}/${item.item.filename}.html">

@@ -3,22 +3,23 @@ category: memory
 aliases: [GO堆]
 tags: [client_golang, go runtime]
 ---
-# go_memstats_stack_sys_bytes
+# go_memstats_stack_inuse_bytes
 
-Number of bytes obtained from system for stack allocator.
+Number of bytes in use by the stack allocator.
 
-> shows how many bytes of stack memory is obtained from OS. It’s go_memstats_stack_inuse_bytes plus any memory obtained for OS thread stack.  
-
-PS: `go_memstats_stack_sys_bytes` - `go_memstats_stack_inuse_bytes` 可以得到OS Thread的栈的大小。
+> shows how many bytes of memory is used by stack memory spans, which have atleast one object in them.
 
 ## Collect from
 
-`runtime.MemStats.StackSys`
+`runtime.MemStats.StackInuse`
 
-> // StackSys is bytes of stack memory obtained from the OS.
-> //
-> // StackSys is StackInuse, plus any memory obtained directly
-> // from the OS for OS thread stacks (which should be minimal).
+> // StackInuse is bytes in stack spans.  
+> //  
+> // In-use stack spans have at least one stack in them. These  
+> // spans can only be used for other stacks of the same size.  
+> //  
+> // There is no StackIdle because unused stack spans are  
+> // returned to the heap (and hence counted toward HeapIdle).  
 
 ## Links
 
