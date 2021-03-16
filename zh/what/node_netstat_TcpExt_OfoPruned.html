@@ -174,25 +174,17 @@
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
 <div class="page">
-<h1>go_memstats_heap_objects</h1>
-<p>Number of allocated objects on heap.</p>
-<blockquote>
-<p>shows how many objects are allocated on the heap. This changes as GC is performed and new objects are allocated.</p>
-</blockquote>
+<h1>node_netstat_TcpExt_OfoPruned.md</h1>
+<p>Increased on clean of the out-of-order queue of a struct <code>tcp_sock</code>.<br />
+由于接收缓存空间不足（sk-&gt;sk_rcvbuf不足）而进行tcp无序数据回收（prune sk-&gt;out_of_order_queue）的次数.</p>
 <h2>Collect from</h2>
-<p><code>runtime.MemStats.HeapObjects</code></p>
-<blockquote>
-<p>// HeapObjects is the number of allocated heap objects.<br />
-//<br />
-// Like HeapAlloc, this increases as objects are allocated and<br />
-// decreases as the heap is swept and unreachable objects are<br />
-// freed.</p>
-</blockquote>
+<p><code>/proc/net/netstat</code> on Linux</p>
 <h2>Links</h2>
 <ul>
-<li><a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L182">代码</a></li>
-<li><a href="https://golang.org/src/runtime/mstats.go">文档</a></li>
-<li><a href="https://povilasv.me/prometheus-go-metrics/#">资料</a></li>
+<li><a href="https://github.com/prometheus/node_exporter/blob/master/collector/netstat_linux.go#L97">代码</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/net/ipv4/tcp_input.c#L5257">代码</a></li>
+<li><a href="https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/TCP%20%E7%9B%B8%E5%85%B3%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3.md">资料</a></li>
+<li><a href="https://satori-monitoring.readthedocs.io/zh/latest/builtin-metrics/tcpext.html#syn-cookies">资料</a></li>
 </ul>
 
 </div>
