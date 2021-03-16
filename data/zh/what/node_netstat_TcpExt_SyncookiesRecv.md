@@ -8,6 +8,7 @@ SYN cookies received.
 
 > After sending a cookie, it came back to us and passed the check.
 
+PS: `/proc/sys/net/ipv4/tcp_syncookies` controle if the SYN cookies proctection is actived on Linux
 
 ## Collect from
 

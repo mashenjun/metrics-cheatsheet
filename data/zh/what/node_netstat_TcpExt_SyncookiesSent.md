@@ -8,6 +8,7 @@ SYN cookies sent.
 
 > An application wasn't able to accept a connection fast enough, so the kernel couldn't store an entry in the queue for this connection. Instead of dropping it, it sent a cookie to the client
 
+PS: `/proc/sys/net/ipv4/tcp_syncookies` controle if the SYN cookies proctection is actived on Linux
 
 ## Collect from
 
