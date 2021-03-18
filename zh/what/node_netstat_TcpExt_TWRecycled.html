@@ -174,20 +174,31 @@
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
 <div class="page">
-<h1>go_gc_duration_seconds</h1>
-<p>A summary of the pause duration of garbage collection cycles.</p>
+<h1>node_netstat_TcpExt_TWRecycled</h1>
+<p>when a connection is reused (net.ipv4.tcp_tw_reuse = 1), the <code>TWRecycled</code> counter is increased.<br />
+PS: TWRecycled只有在建立链接的时候进行统计。</p>
 <blockquote>
-<p>calls out to debug.ReadGCStats() with PauseQuantile set to 5, which returns us the minimum, 25%, 50%, 75%, and maximum pause times. Then it manualy creates a Summary type from pause quantiles, NumGC var and PauseTotal seconds.</p>
+<p>tcp_tw_reuse - INTEGER
+Enable reuse of TIME-WAIT sockets for new connections when it is
+safe from protocol viewpoint.</p>
+<ul>
+<li>0 - disable</li>
+<li>1 - global enable</li>
+<li>2 - enable for loopback traffic only</li>
+</ul>
+<p>It should not be changed without advice/request of technical
+experts.</p>
+<p>Default: 2</p>
 </blockquote>
 <h2>Collect from</h2>
-<pre><code>debug.GCStats.NumGC, debug.GCStats.PauseTotal.Seconds(), debug.GCStats.PauseQuantiles
-</code></pre>
-<p>PS: debug.GCStats.PauseTotal.Seconds() 就是对gc中stw的时间统计。</p>
+<p><code>/proc/net/netstat</code> on Linux</p>
 <h2>Links</h2>
 <ul>
-<li><a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L329">代码</a></li>
-<li><a href="https://golang.org/src/runtime/mstats.go#L555">代码</a></li>
-<li><a href="https://povilasv.me/prometheus-go-metrics/#">资料</a></li>
+<li><a href="https://github.com/prometheus/node_exporter/blob/master/collector/netstat_linux.go#L97">代码</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/net/ipv4/inet_hashtables.c#L487">代码</a></li>
+<li><a href="https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/TCP%20%E7%9B%B8%E5%85%B3%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3.md">资料</a></li>
+<li><a href="https://perthcharles.github.io/2015/11/10/wiki-netstat-proc/">资料</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/Documentation/networking/ip-sysctl.rst">文档</a></li>
 </ul>
 
 </div>
