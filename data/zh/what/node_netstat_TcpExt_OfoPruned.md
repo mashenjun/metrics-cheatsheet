@@ -2,7 +2,7 @@
 category: network
 tags: [node_exporter, netstat]
 ---
-# node_netstat_TcpExt_OfoPruned.md
+# node_netstat_TcpExt_OfoPruned
 
 Increased on clean of the out-of-order queue of a struct `tcp_sock`.  
 由于接收缓存空间不足（sk->sk_rcvbuf不足）而进行tcp无序数据回收（prune sk->out_of_order_queue）的次数.

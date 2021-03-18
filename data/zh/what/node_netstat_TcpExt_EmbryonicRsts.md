@@ -2,7 +2,7 @@
 category: network
 tags: [node_exporter, netstat]
 ---
-# node_netstat_TcpExt_EmbryonicRsts.md
+# node_netstat_TcpExt_EmbryonicRsts
 
 Invalid packet received for a connection in the SYN_RECV state.  
 在`SYN_RECV`状态收到带 RST/SYN 标记的包个数。只有在`tcp_fastopen`没有开启的情况下才会统计。  

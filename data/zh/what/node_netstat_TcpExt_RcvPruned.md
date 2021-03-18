@@ -2,7 +2,7 @@
 category: network
 tags: [node_exporter, netstat]
 ---
-# node_netstat_TcpExt_RcvPruned.md
+# node_netstat_TcpExt_RcvPruned
 
 Increased when the tentative to reduce socket allocated memory failed, data is dropped.  
 由于接收缓存空间不足（sk->sk_rcvbuf不足）而进行tcp内存回收（prune sk->receive_queue和sk->out_of_order_queue）后空间还是不够的次数.  

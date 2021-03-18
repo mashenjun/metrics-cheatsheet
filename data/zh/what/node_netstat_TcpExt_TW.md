@@ -2,7 +2,7 @@
 category: network
 tags: [node_exporter, netstat]
 ---
-# node_netstat_TcpExt_TW.md
+# node_netstat_TcpExt_TW
 
 经过正常的TCP_TIMEWAIT_LEN(60s)结束TW状态的socket数量。  
 PS: 这个指标不是TIME_WAIT数量。无法反应当前系统中有多少在TIME_WAIT状态的socket数量。

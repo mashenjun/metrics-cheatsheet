@@ -2,7 +2,7 @@
 category: network
 tags: [node_exporter, netstat]
 ---
-# node_netstat_TcpExt_OutOfWindowIcmps.md
+# node_netstat_TcpExt_OutOfWindowIcmps
 
 ICMP协议栈收到差错报文时，对于某些类型（ICMP_DEST_UNREACH, ICMP_TIME_EXCEED, ICMP_QUENCH）的差错报文需要传给传输层（tcp协议栈）。  
 如果差错报文中所包含的tcp信息无法通过序列号的校验，tcp协议栈不会处理该次ICMP的差错报文，并统计在`LINUX_MIB_OUTOFWINDOWICMPS`中。   

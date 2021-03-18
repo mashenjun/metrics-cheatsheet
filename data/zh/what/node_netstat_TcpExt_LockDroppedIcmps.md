@@ -2,7 +2,7 @@
 category: network
 tags: [node_exporter, netstat]
 ---
-# node_netstat_TcpExt_LockDroppedIcmps.md
+# node_netstat_TcpExt_LockDroppedIcmps
 
 ICMP协议栈收到差错报文时，对于某些类型（ICMP_DEST_UNREACH, ICMP_TIME_EXCEED, ICMP_QUENCH）的差错报文需要传给传输层（tcp协议栈）。  
 如果此时socket被user锁住的话，tcp协议栈不会处理该次ICMP的差错报文，并统计在`LINUX_MIB_LOCKDROPPEDICMPS`中。   
