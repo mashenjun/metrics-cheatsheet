@@ -174,18 +174,17 @@
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
 <div class="page">
-<h1>PD 依赖 etcd</h1>
-<p>原因主要有：</p>
-<ul>
-<li>简单方便</li>
-<li>稳定</li>
-<li>社区支持</li>
-<li>TiKV/TiDB 本身目前不具备一部分 etcd 的功能，如 lease/watch</li>
-</ul>
+<h1>node_netstat_TcpExt_PAWSEstab</h1>
+<p>Packets are dropped by PAWS in any status other than Syn-Sent.<br />
+PS: 建立链接之后的各个状态下校验失败的次数。
+PS:调用时机<code>tcp_timewait_state_process()</code>，<code>tcp_check_req()</code>，<code>tcp_reset_check()</code></p>
+<h2>Collect from</h2>
+<p><code>/proc/net/netstat</code> on Linux</p>
 <h2>Links</h2>
 <ul>
-<li><a href="https://twitter.com/lemon_hx/status/1366760653835300866?s=21">Twitter 上的讨论</a>
-（评论区捕捉 CTO）</li>
+<li><a href="https://github.com/prometheus/node_exporter/blob/master/collector/netstat_linux.go#L97">代码</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/net/ipv4/tcp_input.c#L6066">代码</a></li>
+<li><a href="https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/TCP%20%E7%9B%B8%E5%85%B3%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3.md">资料</a></li>
 </ul>
 
 </div>

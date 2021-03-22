@@ -174,18 +174,22 @@
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
 <div class="page">
-<h1>PD 依赖 etcd</h1>
-<p>原因主要有：</p>
-<ul>
-<li>简单方便</li>
-<li>稳定</li>
-<li>社区支持</li>
-<li>TiKV/TiDB 本身目前不具备一部分 etcd 的功能，如 lease/watch</li>
-</ul>
+<h1>node_netstat_TcpExt_PAWSActive</h1>
+<p>Packets are dropped by PAWS in Syn-Sent status.<br />
+PS: PAWSActive只有在<code>Syn-Sent</code>阶段被统计（针对SYN的ACK进行的PAWS校验），也就是说只有在主动建立链接的一方进行统计。</p>
+<blockquote>
+<p>PAWS (Protection Against Wrapped Sequence numbers) is an algorithm
+which is used to drop old packets. It depends on the TCP
+timestamps. For detail information, please refer the <a href="https://tools.ietf.org/html/rfc1323#page-17">timestamp wiki</a>
+and the <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_timestamps">RFC of PAWS</a>.</p>
+</blockquote>
+<h2>Collect from</h2>
+<p><code>/proc/net/netstat</code> on Linux</p>
 <h2>Links</h2>
 <ul>
-<li><a href="https://twitter.com/lemon_hx/status/1366760653835300866?s=21">Twitter 上的讨论</a>
-（评论区捕捉 CTO）</li>
+<li><a href="https://github.com/prometheus/node_exporter/blob/master/collector/netstat_linux.go#L97">代码</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/net/ipv4/tcp_input.c#L6066">代码</a></li>
+<li><a href="https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/TCP%20%E7%9B%B8%E5%85%B3%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3.md">资料</a></li>
 </ul>
 
 </div>
