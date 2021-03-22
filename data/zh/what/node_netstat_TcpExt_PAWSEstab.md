@@ -6,7 +6,7 @@ tags: [node_exporter, netstat]
 
 Packets are dropped by PAWS in any status other than Syn-Sent.  
 PS: 建立链接之后的各个状态下校验失败的次数。
-PS:调用时机`tcp_timewait_state_process()`，`tcp_check_req()`，`tcp_reset_check()`
+PS: 调用时机`tcp_timewait_state_process()`，`tcp_check_req()`，`tcp_reset_check()`
 
 ## Collect from
 
