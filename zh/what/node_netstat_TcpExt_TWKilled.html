@@ -174,22 +174,26 @@
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
 <div class="page">
-<h1>go_memstats_mspan_sys_bytes</h1>
-<p>Number of bytes used for mspan structures obtained from system.</p>
+<h1>node_netstat_TcpExt_TWKilled</h1>
+<p>该指标统计了不是经过正常的TCP_TIMEWAIT_LEN(60s)时长被回收的TIME_WAIT状态下的stocket数量。只有在使用PAWS来判断包是否过期的情况下缩短TIME_WAIT的等待时长</p>
 <blockquote>
-<p>shows how many bytes are obtained from OS for <code>mspan</code> structures.</p>
+<ul>
+<li>However, if we use PAWS to detect</li>
+<li>old duplicates, we can reduce the interval to bounds required</li>
+<li>by RTO, rather than MSL. So, if peer understands PAWS, we</li>
+<li>kill tw bucket after 3.5*RTO (it is important that this number</li>
+<li>is greater than TS tick!) and detect old duplicates with help</li>
+<li>of PAWS.</li>
+</ul>
 </blockquote>
 <h2>Collect from</h2>
-<p><code>runtime.MemStats.MSpanSys</code></p>
-<blockquote>
-<p>// MSpanSys is bytes of memory obtained from the OS for mspan structures.</p>
-</blockquote>
-<p>PS：不被runtime内存管理器管理，也不被gc管理。</p>
+<p><code>/proc/net/netstat</code> on Linux</p>
 <h2>Links</h2>
 <ul>
-<li><a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L214">代码</a></li>
-<li><a href="https://golang.org/src/runtime/mstats.go">文档</a></li>
-<li><a href="https://povilasv.me/prometheus-go-metrics/#">资料</a></li>
+<li><a href="https://github.com/prometheus/node_exporter/blob/master/collector/netstat_linux.go#L97">代码</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/net/ipv4/inet_timewait_sock.c#L247">代码</a></li>
+<li><a href="https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/TCP%20%E7%9B%B8%E5%85%B3%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3.md">资料</a></li>
+<li><a href="https://perthcharles.github.io/2015/11/10/wiki-netstat-proc/">资料</a></li>
 </ul>
 
 </div>
