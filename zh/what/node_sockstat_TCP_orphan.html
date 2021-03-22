@@ -174,29 +174,21 @@
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
 <div class="page">
-<h1>go_memstats_heap_sys_bytes</h1>
-<p>Number of heap bytes obtained from system.</p>
+<h1>node_sockstat_TCP_orphan</h1>
+<p>Count of current orphan socket.</p>
 <blockquote>
-<p>bytes of memory obtained for the heap(arena) from OS. This includes virtual address space that has been resevered, but not yet used and virtual address space which was returned to OS after it became unused. This metric estimates the largest size the heap.</p>
+<p>When an application closes a TCP connection, kernel still need to track the connection, let it complete the TCP disconnect process. E.g. an app calls the close method of a socket, kernel sends fin to the other side of the connection, then the app has no relationship with the socket any more, but kernel need to keep the socket, this socket becomes an orphan socket, kernel waits for the reply of the other side, and would come to the TIME_WAIT state finally.<br />
+PS: 对<code>tcp_orphan_count</code>（是一个percpu_counter）的求和。</p>
 </blockquote>
 <h2>Collect from</h2>
-<p><code>runtime.MemStats.HeapSys</code></p>
-<blockquote>
-<p>// HeapSys measures the amount of virtual address space<br />
-// reserved for the heap. This includes virtual address space<br />
-// that has been reserved but not yet used, which consumes no<br />
-// physical memory, but tends to be small, as well as virtual<br />
-// address space for which the physical memory has been<br />
-// returned to the OS after it became unused (see HeapReleased<br />
-// for a measure of the latter).</p>
-</blockquote>
-<p>PS: HeapSys increase when <code>sysAlloc()</code> and <code>sysMap()</code> is called. HeapSys decrease when <code>sysFree()</code> is called.<br />
-PS: HeapSys 不包含off-heap memory 和 manually managed 的span。</p>
+<p><code>/proc/net/sockstat</code> on Linux</p>
 <h2>Links</h2>
 <ul>
-<li><a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go#L150">代码</a></li>
-<li><a href="https://golang.org/src/runtime/mstats.go">文档</a></li>
-<li><a href="https://povilasv.me/prometheus-go-metrics/#">资料</a></li>
+<li><a href="https://github.com/prometheus/node_exporter/blob/master/collector/sockstat_linux.go#L168">代码</a></li>
+<li><a href="https://github.com/prometheus/procfs/blob/master/net_sockstat.go#L62">代码</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/net/ipv4/proc.c#L60">代码</a></li>
+<li><a href="https://blog.csdn.net/ffzhihua/article/details/87257228">资料</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/Documentation/networking/snmp_counter.rst">文档</a></li>
 </ul>
 
 </div>
