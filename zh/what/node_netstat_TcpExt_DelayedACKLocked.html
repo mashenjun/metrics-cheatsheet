@@ -10,7 +10,7 @@
     <link rel="manifest" href="https://mashenjun.github.io/metrics-cheatsheet/static/manifest.json">
     <link rel="stylesheet" href="https://mashenjun.github.io/metrics-cheatsheet/static/mui.css">
     
-<link rel="stylesheet" href="https://mashenjun.github.io/metrics-cheatsheet/static/table.css">
+<link rel="stylesheet" href="https://mashenjun.github.io/metrics-cheatsheet/static/page.css">
 
     <meta name="google-site-verification" content="eIlbRaKM-jgH9zQg2VFwWY4H-027wQlW6K-TWdEvI1g">
     <title>Metrics Cheat Sheet</title>
@@ -173,37 +173,17 @@
             <div class="jss5"></div>
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
-<div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
-    
-<div class="MuiPaper-root MuiTableContainer-root jss22 MuiPaper-elevation1 MuiPaper-rounded">
-    <table class="MuiTable-root jss23" aria-label="table">
-        <thead class="MuiTableHead-root">
-        <tr class="MuiTableRow-root MuiTableRow-head">
-            <th class="MuiTableCell-root MuiTableCell-head" scope="col">名称</th>
-            <th class="MuiTableCell-root MuiTableCell-head" scope="col">类型</th>
-            <th class="MuiTableCell-root MuiTableCell-head" scope="col">Tags</th>
-        </tr>
-        </thead>
-        <tbody class="MuiTableBody-root">
-        
-        <tr class="MuiTableRow-root table-row">
-            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">
-                <a class="table-itemname" href="https://mashenjun.github.io/metrics-cheatsheet/zh/where/Hash Join 时遇到内存不足时将数据 spill 到磁盘.html">Hash Join 时遇到内存不足时将数据 spill 到磁盘</a>
-            </th>
-            <td class="MuiTableCell-root MuiTableCell-body">where</td>
-            <td class="MuiTableCell-root MuiTableCell-body">
-                
-                <span class="tag TiDB">TiDB</span>
-                
-                <span class="tag excutor">excutor</span>
-                
-            </td>
-        </tr>
-        
-        </tbody>
-    </table>
-    <script src="https://mashenjun.github.io/metrics-cheatsheet/static/table.js"></script>
-</div>
+<div class="page">
+<h1>node_netstat_TcpExt_DelayedACKLocked</h1>
+<p>A delayed ACK timer expires, but the TCP stack can't send an ACK immediately due to the socket is locked by a userspace program. The TCP stack will send a pure ACK later (after the userspace program unlock the socket). When the TCP stack sends the pure ACK later, the TCP stack will also update TcpExtDelayedACKs and exit the delayed ACK mode.</p>
+<h2>Collect from</h2>
+<p><code>/proc/net/netstat</code> on Linux</p>
+<h2>Links</h2>
+<ul>
+<li><a href="https://github.com/prometheus/node_exporter/blob/master/collector/netstat_linux.go#L97">代码</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/net/ipv4/tcp_timer.c#L346">代码</a></li>
+<li><a href="https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/TCP%20%E7%9B%B8%E5%85%B3%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3.md">资料</a></li>
+</ul>
 
 </div>
 
