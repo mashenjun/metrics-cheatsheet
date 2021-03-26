@@ -4,7 +4,7 @@ tags: [node_exporter, netstat]
 ---
 # node_netstat_TcpExt_TWKilled
 
-该指标统计了不是经过正常的TCP_TIMEWAIT_LEN(60s)时长被回收的TIME_WAIT状态下的stocket数量。只有在使用PAWS来判断包是否过期的情况下缩短TIME_WAIT的等待时长
+该指标统计了没有经过正常的TCP_TIMEWAIT_LEN(60s)时长被回收的TIME_WAIT状态下的stocket数量。只有在使用PAWS来判断包是否过期的情况下才会缩短TIME_WAIT的等待时长。  
 
 > * However, if we use PAWS to detect
 > * old duplicates, we can reduce the interval to bounds required
