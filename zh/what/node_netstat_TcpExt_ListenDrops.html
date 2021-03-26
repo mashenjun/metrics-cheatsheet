@@ -174,11 +174,17 @@
             <div class="MuiContainer-root jss7 MuiContainer-maxWidthLg">
                 
 <div class="page">
-<h1>todo</h1>
-<p>todo</p>
+<h1>node_netstat_TcpExt_ListenDrops</h1>
+<p>When a TCP socket is in LISTEN state, and kernel need to drop a packet, kernel would always add 1 to TcpExtListenDrops.<br />
+So increase TcpExtListenOverflows would let TcpExtListenDrops increasing at the same time, but TcpExtListenDrops would also increase without TcpExtListenOverflows increasing.<br />
+PS: 这是基于包维度的统计。除了建立链接失败时计数器加一，其他多个场景下导致包drop的话也会加一。具体的调用点为：<code>tcp_conn_request()</code>，<code>tcp_req_err()</code>，<code>tcp_v4_conn_request()</code>，<code>tcp_v4_syn_recv_sock()</code></p>
+<h2>Collect from</h2>
+<p><code>/proc/net/netstat</code> on Linux</p>
 <h2>Links</h2>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Todo">todo</a></li>
+<li><a href="https://github.com/prometheus/node_exporter/blob/master/collector/netstat_linux.go#L97">代码</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/include/net/tcp.h#L2177">代码</a></li>
+<li><a href="https://github.com/moooofly/MarkSomethingDown/blob/master/Linux/TCP%20%E7%9B%B8%E5%85%B3%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3.md">资料</a></li>
 </ul>
 
 </div>
