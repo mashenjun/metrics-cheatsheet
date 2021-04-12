@@ -6,7 +6,7 @@ tags: [node_exporter, netstat]
 
 When a TCP socket is in LISTEN state, and kernel need to drop a packet, kernel would always add 1 to TcpExtListenDrops.   
 So increase TcpExtListenOverflows would let TcpExtListenDrops increasing at the same time, but TcpExtListenDrops would also increase without TcpExtListenOverflows increasing.  
-PS: 这是基于包维度的统计。除了建立链接失败时计数器加一，其他多个场景下导致包drop的话也会加一。具体的调用点为：`tcp_conn_request()`，`tcp_req_err()`，`tcp_v4_conn_request()`，`tcp_v4_syn_recv_sock()`
+PS: 这是基于包维度的统计。除了建立链接失败时计数器加一，其他多个场景下导致包drop的话也会加一（TODO）。具体的调用点为：`tcp_conn_request()`，`tcp_req_err()`，`tcp_v4_conn_request()`，`tcp_v4_syn_recv_sock()`
 
 ## Collect from
 
